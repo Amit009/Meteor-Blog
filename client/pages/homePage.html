@@ -7,33 +7,31 @@
         <main id="main" class="site-main grid" role="main">
             <div class="container">
                 <div class="row post_grid">
+                {{#each blogs}}
                 	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 post-item">
                         <div class="post-container">
                             <article class="post-list">
-                                <div class="featured-img">
-                                    <img src="assets/img/108H.jpg" class="img-responsive">
-                                    <div class="img-overlay"></div>
-                                </div>
                                 <div class="bd"></div>
-                                <div class="post-type">
+                                <div class="post-type text-center">
                                     <i class="fa fa-camera"></i>
                                 </div>
                                 <header class="entry-header">
-                                    <h2 class="entry-title"><a href="%s" rel="bookmark">Different People with Different stories</a></h2>
+                                    <h2 class="entry-title text-center"><a href="{{this._id}}" rel="bookmark">{{title}}</a></h2>
                                     <div class="post_detail post_date">
                                         <span class="post_info_date">
-                                            <span>July 22, 2015</span>
+                                            <span>{{date}}</span>
                                         </span>
                                     </div>
                                 </header>
                                 <!-- .entry-header -->
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <a href="#" class="read-more">read more</a>
+                                    <p>{{desc}}</p>
+                                    <a href="{{this._id}}" class="read-more">read more</a>
                                 </div>
                             </article>
                         </div>
                     </div>
+                {{/each}}
             	</div>
             </div>
         </main>

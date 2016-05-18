@@ -1,4 +1,28 @@
 <template name="singlePage">
-	<h1>Single Page</h1>
+	{{> Header}}
+	{{> Navigation}}
 
+	<div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="clearfix"></div>
+            <div class="container">
+                <div class="col-xs-12">
+                    <header class="entry-header text-center">
+                        <h2 class="entry-title">{{blogsingle.title}}</h2>
+                        <div class="post_detail post_date">
+                            <span class="post_info_date">
+                                <span>{{blogsingle.date}}</span>
+                            </span>
+                        </div>
+                    </header>
+                    <div class="single-content">
+                        <p>{{blogsingle.desc}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+	{{> Footer }}
 </template>

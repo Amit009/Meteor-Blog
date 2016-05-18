@@ -1,15 +1,24 @@
 
-FlowRouter.route('/', {
-	name: 'home',
-	action() {
-		BlazeLayout.render('homePage')
-	}
-});
+if(Meteor.isClient) {
+	Accounts.onLogin(function() {
+		FlowRouter.go('admin');
+	});
 
-FlowRouter.route('/home/:id', {
-	name: 'singleblog',
+	Accounts.onLogout(function() {
+		FlowRouter.go('home');
+	});
+}
+
+
+FlowRouter.route('/admin', {
+	name: 'admin',
 	action() {
-		BlazeLayout.render('singlePage');
+		if(Meteor.userId()) {
+			BlazeLayout.render('adminPage');
+		} else {
+			BlazeLayout.render('pleaseLogin');
+		}
+		
 	}
 });
 
@@ -20,9 +29,18 @@ FlowRouter.route('/about', {
 	}
 });
 
-FlowRouter.route('/admin/', {
-	name: 'admin',
+FlowRouter.route('/', {
+	name: 'home',
 	action() {
-		BlazeLayout.render('adminPage');
+		BlazeLayout.render('homePage');
 	}
 });
+
+FlowRouter.route('/:id', {
+	name: 'singleblog',
+	action() {
+		BlazeLayout.render('singlePage');
+	}
+});
+
+
